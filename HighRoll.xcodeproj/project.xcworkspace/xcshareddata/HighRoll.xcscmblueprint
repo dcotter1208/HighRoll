@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F0550AAC609756C9645C28788C50A9DC3A03365F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "F0550AAC609756C9645C28788C50A9DC3A03365F" : 0,
+    "D9D0CCF4566E82CC7C13C89E9BA659C99FE126D2" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "75641DA0-BBC2-4679-9E8C-DE6CF64A888A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "F0550AAC609756C9645C28788C50A9DC3A03365F" : "HighRoll\/",
+    "D9D0CCF4566E82CC7C13C89E9BA659C99FE126D2" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "HighRoll",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "HighRoll.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:dcotter1208\/LightningRealm.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D9D0CCF4566E82CC7C13C89E9BA659C99FE126D2"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:dcotter1208\/HighRoll.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F0550AAC609756C9645C28788C50A9DC3A03365F"
+    }
+  ]
+}
