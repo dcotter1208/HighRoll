@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *totalBetSegmentedControl;
 @property (weak, nonatomic) IBOutlet UIImageView *dieOneImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *dieTwoImageView;
+@property (weak, nonatomic) IBOutlet UILabel *aboveOrBelowNumberLabel;
 
 
 @end
@@ -23,8 +24,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _balance = 100;
-    _rollCount = 1;
+    
+    [self startGame];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,15 +33,26 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)rollButtonPressed:(id)sender {
-    _dieOne = [self randomize:1 max:6];
-    _dieTwo = [self randomize:1 max:6];
-    NSLog(@"dieOne = %i, dieTwo = %i", _dieOne, _dieTwo);
+- (void)startGame {
+    _balance = 100;
+    _rollCount = 1;
+    _aboveOrBelowNumber = [self randomize:4 max:8];
+    self.aboveOrBelowNumberLabel.text = [NSString stringWithFormat:@"%i", _aboveOrBelowNumber];
+    //NSLog(@"aboveOrBelowNumber = %i", _aboveOrBelowNumber);
 }
 
 - (int)randomize:(int)min max:(int)max {
     return min + arc4random_uniform(max - min + 1);
 }
+
+- (IBAction)rollButtonPressed:(id)sender {
+    _dieOne = [self randomize:1 max:6];
+    _dieTwo = [self randomize:1 max:6];
+    //NSLog(@"dieOne = %i, dieTwo = %i", _dieOne, _dieTwo);
+    
+}
+
+
 
 
 @end

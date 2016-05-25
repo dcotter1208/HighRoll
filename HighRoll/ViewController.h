@@ -13,6 +13,7 @@
 
 @property(nonatomic) int balance;
 @property(nonatomic) BOOL aboveOrBelow;
+@property(nonatomic) int aboveOrBelowNumber;
 @property(nonatomic) int dieOne;
 @property(nonatomic) int dieTwo;
 @property(nonatomic) int diceTotal;
