@@ -26,6 +26,7 @@
     [super viewDidLoad];
     
     [self startGame];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,12 +46,38 @@
     return min + arc4random_uniform(max - min + 1);
 }
 
+
+- (void) checkIfAboveOrBelow{
+    
+    if (_diceTotal == _aboveOrBelowNumber) {
+        NSLog(@"PUUUUUUUSSSSHHHHHHH");
+    } else if (_belowOrAboveSegmentedControl.selectedSegmentIndex == 0 && _diceTotal < _aboveOrBelowNumber) {
+        NSLog(@"dice total: %i, aboveOrBelowNum: %i", _diceTotal, _aboveOrBelowNumber);
+        NSLog(@"You WON!");
+    } else if (_belowOrAboveSegmentedControl.selectedSegmentIndex == 1 && _diceTotal > _aboveOrBelowNumber) {
+        NSLog(@"dice total: %i, aboveOrBelowNum: %i", _diceTotal, _aboveOrBelowNumber);
+        NSLog(@"You WON!");
+    } else {
+        NSLog(@"dice total: %i, aboveOrBelowNum: %i", _diceTotal, _aboveOrBelowNumber);
+        NSLog(@"you lose");
+    }
+
+}
+
+
+
+
+
 - (IBAction)rollButtonPressed:(id)sender {
     _dieOne = [self randomize:1 max:6];
     _dieTwo = [self randomize:1 max:6];
+    _diceTotal = _dieOne + _dieTwo;
+    [self checkIfAboveOrBelow];
     //NSLog(@"dieOne = %i, dieTwo = %i", _dieOne, _dieTwo);
     
 }
+
+
 
 
 
