@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *dieOneImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *dieTwoImageView;
 @property (weak, nonatomic) IBOutlet UILabel *aboveOrBelowNumberLabel;
+@property (weak, nonatomic) IBOutlet UIStepper *betStepper;
 
 
 @end
@@ -37,9 +38,12 @@
 - (void)startGame {
     _balance = 100;
     _rollCount = 1;
+    _bet = 10;
     _aboveOrBelowNumber = [self randomize:4 max:8];
-    self.aboveOrBelowNumberLabel.text = [NSString stringWithFormat:@"%i", _aboveOrBelowNumber];
-    //NSLog(@"aboveOrBelowNumber = %i", _aboveOrBelowNumber);
+    _aboveOrBelowNumberLabel.text = [NSString stringWithFormat:@"%i", _aboveOrBelowNumber];
+    _balanceLabel.text = [NSString stringWithFormat:@"Balance: $%i", _balance];
+    _totalBetLabel.text = [NSString stringWithFormat:@"Total bet: $%i", _bet ];
+    
 }
 
 - (int)randomize:(int)min max:(int)max {
@@ -52,12 +56,18 @@
     if (_diceTotal == _aboveOrBelowNumber) {
         NSLog(@"PUUUUUUUSSSSHHHHHHH");
     } else if (_belowOrAboveSegmentedControl.selectedSegmentIndex == 0 && _diceTotal < _aboveOrBelowNumber) {
+        _balance += _bet;
+        _balanceLabel.text = [NSString stringWithFormat:@"Balance: $%i", _balance];
         NSLog(@"dice total: %i, aboveOrBelowNum: %i", _diceTotal, _aboveOrBelowNumber);
         NSLog(@"You WON!");
     } else if (_belowOrAboveSegmentedControl.selectedSegmentIndex == 1 && _diceTotal > _aboveOrBelowNumber) {
+        _balance += _bet;
+        _balanceLabel.text = [NSString stringWithFormat:@"Balance: $%i", _balance];
         NSLog(@"dice total: %i, aboveOrBelowNum: %i", _diceTotal, _aboveOrBelowNumber);
         NSLog(@"You WON!");
     } else {
+        _balance -= _bet;
+        _balanceLabel.text = [NSString stringWithFormat:@"Balance: $%i", _balance];
         NSLog(@"dice total: %i, aboveOrBelowNum: %i", _diceTotal, _aboveOrBelowNumber);
         NSLog(@"you lose");
     }
@@ -65,7 +75,42 @@
 }
 
 
+- (IBAction)betIncrementDecrement:(id)sender {
+    if (_totalBetSegmentedControl.selectedSegmentIndex == 1 && _bet <= _balance ){
+        
+        _bet +=10;
+        _totalBetLabel.text = [NSString stringWithFormat:@"Total bet: $%i", _bet ];
+        
+    } else if (_totalBetSegmentedControl.selectedSegmentIndex == 0 && _bet >= 10){
+        _bet -=10;
+        _totalBetLabel.text = [NSString stringWithFormat:@"Total bet: $%i", _bet ];
+    
+    }
 
+    
+}
+
+-(void)determineDieImage:(int)dieNum {
+
+    switch (dieNum) {
+        case 1:
+//            one
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+
+- (IBAction)betIncrementAndDecrement:(UIStepper *)sender {
+    
+    if (sender.value >=10 && sender.value <= _balance){
+        _bet = sender.value;
+        _totalBetLabel.text = [NSString stringWithFormat:@"Total bet: $%i", _bet ];
+        
+    }
+}
 
 
 - (IBAction)rollButtonPressed:(id)sender {
@@ -73,7 +118,7 @@
     _dieTwo = [self randomize:1 max:6];
     _diceTotal = _dieOne + _dieTwo;
     [self checkIfAboveOrBelow];
-    //NSLog(@"dieOne = %i, dieTwo = %i", _dieOne, _dieTwo);
+
     
 }
 
