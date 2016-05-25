@@ -9,6 +9,13 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *balanceLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *belowOrAboveSegmentedControl;
+@property (weak, nonatomic) IBOutlet UILabel *totalBetLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *totalBetSegmentedControl;
+@property (weak, nonatomic) IBOutlet UIImageView *dieOneImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *dieTwoImageView;
+
 
 @end
 
@@ -16,12 +23,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+//
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)rollButtonPressed:(id)sender {
+    
+    
+}
+
+
 
 @end
