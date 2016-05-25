@@ -23,8 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//
+    _balance = 100;
+    _rollCount = 1;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,10 +33,14 @@
 }
 
 - (IBAction)rollButtonPressed:(id)sender {
-    
-    
+    _dieOne = [self randomize:1 max:6];
+    _dieTwo = [self randomize:1 max:6];
+    NSLog(@"dieOne = %i, dieTwo = %i", _dieOne, _dieTwo);
 }
 
+- (int)randomize:(int)min max:(int)max {
+    return min + arc4random_uniform(max - min + 1);
+}
 
 
 @end
